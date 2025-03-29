@@ -42,7 +42,6 @@ This project implements **Burrows-Wheeler Transform (BWT)** using two approaches
 **Time Complexity**: 
 - Naive BWT construction: $O(n^2)$
 - Using suffix arrays $O(n)$
-- 
 ---
 
 ### 3. Lempel-Ziv Algorithms (LZ77 & LZ78)
@@ -52,8 +51,11 @@ LZ77 and LZ78 are **dictionary-based compression techniques**, replacing repeate
 - **LZ77**: Uses **sliding windows** to detect repetitions dynamically.
 - **LZ78**: Builds an **incremental dictionary** based on input sequences.
 The implementation evaluates the relationship between the number of triplets (𝑧) produced by LZ77 (or LZSS) encoding and the number of equal-letter runs (𝑟) in the Burrows-Wheeler Transform (BWT) of a given text, to validate the theoretical relations:
+
 $r = O(z (\log n)^2)$
+
 $z = O(r \log n)$
+
 ---
 
 ### 4. Integer Encoding Methods
