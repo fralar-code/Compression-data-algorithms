@@ -71,13 +71,23 @@ The goal is to compare their **bit-length efficiency** across different integers
 
 ---
 
-### 5. Sardinas-Patterson Algorithm
+### 5. Re-Pair Algorithm
+Re-Pair is a compression algorithm based on iterative replacement of the most frequent symbol pairs with a new non-terminal symbol. This method is particularly effective for texts with repetitive structures.
 
-A method used to **verify whether a code is uniquely decodable**, meaning if a **prefix-free** exists. It constructs successive sets of suffixes to detect ambiguities.
+**Steps**:
+1.	Identify the most frequent adjacent symbol pair.
+2.	Replace all occurrences of this pair with a new non-terminal symbol.
+3.	Store the replacement rule and continue until no pair appears more than once.
+This process **constructs a minimal context-free grammar** that represents the original sequence.
 
+The implementation also includes transformation to **CNF form**.This extension ensures that the final grammar follows **Chomsky Normal Form (CNF)**, which is commonly used in **parsing algorithms** and formal **language theory**.
 
 ---
 
+### 6. Sardinas-Patterson Algorithm
+A method used to **verify whether a code is uniquely decodable**, meaning if a **prefix-free** exists. It constructs successive sets of suffixes to detect ambiguities.
+
+---
 ## Repository Structure
 
 - `/src/` - Contains Python implementations of the algorithms.
