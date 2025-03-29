@@ -20,7 +20,7 @@ The implementation includes:
 
 Huffman's algorithm generates an **optimal prefix code** for discrete sources with known probability distributions.
 
-**Time Complexity**: \( O(n \log n) \), where \( n \) is the number of distinct symbols.
+**Time Complexity**: $O(n \log n)$, where $n$ is the number of distinct symbols.
 
 ---
 
@@ -39,8 +39,10 @@ This project implements **Burrows-Wheeler Transform (BWT)** using two approaches
 - Recursively reduces the problem when LMS factors are not unique.
 - Constructs the **full suffix array** from LMS suffixes.
 
-**Time Complexity**: \( O(n) \) in the worst case.
-
+**Time Complexity**: 
+- Naive BWT construction: $O(n^2)$
+- Using suffix arrays $O(n)$
+- 
 ---
 
 ### 3. Lempel-Ziv Algorithms (LZ77 & LZ78)
@@ -49,14 +51,9 @@ LZ77 and LZ78 are **dictionary-based compression techniques**, replacing repeate
 
 - **LZ77**: Uses **sliding windows** to detect repetitions dynamically.
 - **LZ78**: Builds an **incremental dictionary** based on input sequences.
-- **Application**: Forms the basis for modern compressors like **DEFLATE** (used in **gzip** and **PNG**).
-
-This implementation evaluates the relationship between the **number of triplets (z)** produced by **LZ77 encoding** and the **number of equal-letter runs (r)** in the **Burrows-Wheeler Transform (BWT)** of a given text, validating the theoretical relations.
-
-**Time Complexity**:
-- **LZ77**: \( O(n) \) in the best case, \( O(n^2) \) in the worst case (depending on window size).
-- **LZ78**: \( O(n) \) for encoding, \( O(n) \) for decoding.
-
+The implementation evaluates the relationship between the number of triplets (𝑧) produced by LZ77 (or LZSS) encoding and the number of equal-letter runs (𝑟) in the Burrows-Wheeler Transform (BWT) of a given text, to validate the theoretical relations:
+$r = O(z (\log n)^2)$
+$z = O(r \log n)$
 ---
 
 ### 4. Integer Encoding Methods
@@ -68,20 +65,14 @@ This project implements various **integer encoding schemes**, including:
 - **Rice Encoding**
 - **Fibonacci Encoding**
 
-The goal is to compare their **bit-length efficiency** across different datasets.
-
-**Time Complexity**:
-- **Gamma & Delta Encoding**: \( O(\log x) \) per encoded integer.
-- **Rice Encoding**: \( O(1) \) per encoded integer (given a fixed divisor).
-- **Fibonacci Encoding**: \( O(\log x) \) per encoded integer.
+The goal is to compare their **bit-length efficiency** across different integers.
 
 ---
 
 ### 5. Sardinas-Patterson Algorithm
 
-A method used to **verify whether a code is uniquely decodable**, meaning it has a **prefix-free property**. It constructs successive sets of suffixes to detect ambiguities.
+A method used to **verify whether a code is uniquely decodable**, meaning if a **prefix-free** exists. It constructs successive sets of suffixes to detect ambiguities.
 
-**Time Complexity**: \( O(n^2) \) in the worst case, where \( n \) is the number of codewords.
 
 ---
 
@@ -98,7 +89,7 @@ A method used to **verify whether a code is uniquely decodable**, meaning it has
    ```sh
    git clone https://github.com/fralar-code/Compression-data-algorithms.git
    cd Compression-data-algorithms
-2. Run one of the scripts in the 'src/' folder:
+2. Run one of the scripts in the `src/` folder:
    ```sh
    python src/Huffman/huffman.py
    
