@@ -89,7 +89,7 @@ A method used to **verify whether a code is uniquely decodable**, meaning if a *
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/fralar-code/Compression-data-algorithms.git
+   git clone https://github.com/fralar-code/Huffman-BWT-LZ-Compression.git
    cd Compression-data-algorithms
 2. Run one of the scripts in the `src/` folder:
    ```sh
